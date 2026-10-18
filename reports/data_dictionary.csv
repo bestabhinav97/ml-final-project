@@ -1,0 +1,34 @@
+column,role,meaning
+id,reference,Reference ID
+age,predictor,Quantified age band
+gender,predictor,Gender
+education,predictor,Quantified education
+country,predictor,Country of residence
+ethnicity,predictor,Ethnicity
+nscore,predictor,Neuroticism
+escore,predictor,Extraversion
+oscore,predictor,Openness
+ascore,predictor,Agreeableness
+cscore,predictor,Conscientiousness
+impulsive,predictor,Impulsivity
+ss,predictor,Sensation seeking
+alcohol,response; excluded from X,alcohol recency CL0-CL6
+amphet,response; excluded from X,amphet recency CL0-CL6
+amyl,response; excluded from X,amyl recency CL0-CL6
+benzos,response; excluded from X,benzos recency CL0-CL6
+caff,response; excluded from X,caff recency CL0-CL6
+cannabis,response; excluded from X,cannabis recency CL0-CL6
+choc,response; excluded from X,choc recency CL0-CL6
+coke,response; excluded from X,coke recency CL0-CL6
+crack,response; excluded from X,crack recency CL0-CL6
+ecstasy,response; excluded from X,ecstasy recency CL0-CL6
+heroin,response; excluded from X,heroin recency CL0-CL6
+ketamine,response; excluded from X,ketamine recency CL0-CL6
+legalh,response; excluded from X,legalh recency CL0-CL6
+lsd,response; excluded from X,lsd recency CL0-CL6
+meth,response; excluded from X,Methadone recency
+mushrooms,response; excluded from X,mushrooms recency CL0-CL6
+nicotine,response; excluded from X,nicotine recency CL0-CL6
+semer,response; excluded from X,Fictitious Semeron quality check
+vsa,response; excluded from X,vsa recency CL0-CL6
+cannabis_class,target,"0=never, 1=former, 2=recent"

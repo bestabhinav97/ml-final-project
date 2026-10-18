@@ -1,0 +1,94 @@
+{
+  "dataset_url": "https://archive.ics.uci.edu/dataset/373/drug+consumption+quantified",
+  "raw_sha256": "90b8cf500b07ad455baf9fe1dc519998c75a1df6d87f6bd7069176f0826ea8c1",
+  "target_mapping": {
+    "CL0": 0,
+    "CL1": 1,
+    "CL2": 1,
+    "CL3": 2,
+    "CL4": 2,
+    "CL5": 2,
+    "CL6": 2
+  },
+  "class_names": {
+    "0": "Never used",
+    "1": "Former user",
+    "2": "Recent user"
+  },
+  "seed": 42,
+  "test_fraction": 0.2,
+  "train_rows": 1501,
+  "test_rows": 376,
+  "predictors": [
+    "age",
+    "gender",
+    "education",
+    "country",
+    "ethnicity",
+    "nscore",
+    "escore",
+    "oscore",
+    "ascore",
+    "cscore",
+    "impulsive",
+    "ss"
+  ],
+  "numeric": [
+    "age",
+    "education",
+    "nscore",
+    "escore",
+    "oscore",
+    "ascore",
+    "cscore",
+    "impulsive",
+    "ss"
+  ],
+  "categorical": [
+    "gender",
+    "country",
+    "ethnicity"
+  ],
+  "transformed_columns": [
+    "age",
+    "education",
+    "nscore",
+    "escore",
+    "oscore",
+    "ascore",
+    "cscore",
+    "impulsive",
+    "ss",
+    "gender_Female",
+    "gender_Male",
+    "country_Australia",
+    "country_Canada",
+    "country_New Zealand",
+    "country_Other",
+    "country_Republic of Ireland",
+    "country_UK",
+    "country_USA",
+    "ethnicity_Asian",
+    "ethnicity_Black",
+    "ethnicity_Mixed-Black/Asian",
+    "ethnicity_Mixed-White/Asian",
+    "ethnicity_Mixed-White/Black",
+    "ethnicity_Other",
+    "ethnicity_White"
+  ],
+  "quality": {
+    "raw_rows": 1885,
+    "raw_columns": 32,
+    "missing_cells": 0,
+    "duplicate_responses_raw": 0,
+    "semeron_excluded": 8,
+    "duplicate_ids_removed": [],
+    "clean_rows": 1877
+  },
+  "versions": {
+    "python": "3.14.0",
+    "pandas": "3.0.0",
+    "numpy": "2.4.2",
+    "scikit-learn": "1.9.1"
+  }
+}
