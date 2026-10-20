@@ -1,9 +1,11 @@
-# Cannabis consumption prediction: Phase 1 handoff
+# Cannabis consumption prediction (DA380A, Group 07)
 
-**Data preparation is complete.** Start with the executed, commented
-[preparation notebook](notebooks/01_data_preparation.ipynb). It explains loading,
-cleaning, exploration, target creation, encoding, scaling, and the train/test split.
-No predictive models have been trained yet.
+**Data preparation and Algorithm 1 are complete.** Start with the executed, commented
+[project notebook](notebooks/ML_project.ipynb). It explains loading, cleaning,
+exploration, target creation, encoding, scaling, the train/test split, and the
+**one-vs-rest logistic regression implemented from scratch** (NumPy/Pandas/Matplotlib
+only), including 5-fold cross-validation and the final test evaluation.
+Algorithm 2 (library model) is still to be added.
 
 ## What are we predicting?
 
@@ -87,6 +89,22 @@ outlier deletion was performed. Legitimate extreme scores were retained.
 Training class counts are **330 never, 378 former, 793 recent**. Recent users make up
 about 53% of training data, so accuracy alone is insufficient for comparison.
 
+## Algorithm 1: logistic regression from scratch (one vs rest)
+
+Implemented using only NumPy, Pandas and Matplotlib.
+
+- **Model:** three yes/no logistic regressions (never / former / recent vs the rest);
+  the predicted class is the one with the highest probability.
+- **Learning:** batch gradient descent on cross entropy loss with an L2 penalty.
+- **Validation:** stratified 5 fold cross validation inside the training set.
+  The preprocessor is cloned and re fitted inside every fold so no
+  validation data leaks into the scaling. The grid searched `lr` and `l2`;
+  the chosen settings were `lr = 0.5`, `l2 = 0.001`, 1000 iterations.
+- **Metrics:** confusion matrix, accuracy, per-class precision/recall/F1 and
+  macro F1 (main metric) compared with a majority class baseline.
+- **Test result (used once):** accuracy about 0.69 and macro F1 about 0.61
+  (baseline: 0.53 and 0.23). "Former user" is the hardest class (recall about 0.35).
+
 ## What the modeling teammate does next
 
 1. Implement the required logistic regression **from scratch**, supporting three
@@ -136,7 +154,7 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m jupyterlab
 ```
 
-Open `notebooks/01_data_preparation.ipynb`, select the `.venv` kernel, and choose
+Open `notebooks/ML_project.ipynb`, select the `.venv` kernel, and choose
 **Run All**. VS Code can also open the notebook with that kernel. The notebook is
 self-contained; no notebook-generation script is needed. The raw data is included
 and checksum verified; downloading happens only if the file is absent. Rerunning
@@ -146,7 +164,7 @@ overwrites generated outputs with the deterministic split described above.
 
 | Path | Purpose |
 |---|---|
-| `notebooks/01_data_preparation.ipynb` | Executed notebook with comments, explanations and plots |
+| `notebooks/ML_project.ipynb` | Executed notebook: data preparation (Phase 1) and logistic regression from scratch (Algorithm 1) |
 | `data/raw/drug_consumption.data` | Unchanged source file |
 | `data/processed/*_ready.csv` | Model-ready training/test inputs |
 | `data/processed/y_*.csv` | Target labels |
@@ -172,5 +190,3 @@ Fehrman, E., Egan, V., & Mirkes, E. (2015). *Drug Consumption (Quantified)*.
 [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/373/drug+consumption+quantified).
 [DOI: 10.24432/C5TC7S](https://doi.org/10.24432/C5TC7S). Dataset license: **CC BY 4.0**.
 
-The course brief informs the next-stage requirements; this repository currently
-covers Phase 1. Read and understand the code and decisions before submission.
