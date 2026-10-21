@@ -1,0 +1,21 @@
+{
+  "best_params": {
+    "svc__C": 100,
+    "svc__class_weight": null,
+    "svc__gamma": 0.001
+  },
+  "selection_metric": "macro_f1",
+  "cv_folds": 5,
+  "same_folds_as_algorithm_1": true,
+  "cv_macro_f1": 0.6142469909952866,
+  "cv_std": 0.01760446039554513,
+  "training_macro_f1": 0.6413026791882533,
+  "test_accuracy": 0.6914893617021277,
+  "test_macro_f1": 0.624089972295951,
+  "versions": {
+    "python": "3.12.0",
+    "sklearn": "1.9.1",
+    "numpy": "2.5.4",
+    "pandas": "3.0.6"
+  }
+}
